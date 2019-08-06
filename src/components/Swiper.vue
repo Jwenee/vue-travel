@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
-    <swiper :options="swiperOption">
-      <swiper-slide v-for="item of swiperList" :key="item.id">
+    <swiper :options="swiperOption" v-if="showSwiper">
+      <swiper-slide v-for="item of list" :key="item.id">
         <img class="swiper-img" :src="item.imgUrl" alt="">
       </swiper-slide>
     <div class="swiper-pagination"  slot="pagination"></div>
@@ -12,6 +12,9 @@
 <script>
 export default {
   name: 'HomeSwiper',
+  props: {
+    list: Array
+  },
   data() {
     return {
       swiperOption: {
@@ -19,16 +22,11 @@ export default {
         loop: true,
         autoplay: 2000
       },
-      swiperList: [
-        {
-          id: '0001',
-          imgUrl: '//source.qunarzz.com/site/images/wns/20190801_qunar_dujia_750x192_3.jpg'
-        },
-        {
-          id: '0002',
-          imgUrl: '//source.qunarzz.com/site/images/wns/20190731_dujia_homepage_top_banner_5.jpg'
-        }
-      ]
+    }
+  },
+  computed: {
+    showSwiper() {
+      return this.list.length
     }
   }
 
@@ -45,7 +43,7 @@ export default {
     overflow: hidden
     // 元素相对于自己的宽度撑开26%高度（内部图片宽高比）图片宽高自适应,另一种写法：width：100%， height：39vw
     // 避免区域内图片没加载时高度为0导致下方内容位置出现从上到下的闪动
-    padding-bottom: 26%
+    padding-bottom: 27%
     background: #eeeeee
     .swiper-img
       width: 100%

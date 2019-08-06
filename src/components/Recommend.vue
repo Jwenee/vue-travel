@@ -3,7 +3,7 @@
     <div class="title">热销推荐</div>
     <ul>
       <!-- 1px边框border-bottom引入的reset -->
-      <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
+      <li class="item border-bottom" v-for="item of list" :key="item.id">
 
         <img class="item-img" :src="item.imgUrl" alt="">
 
@@ -20,25 +20,8 @@
 <script>
 export default {
   name: 'HomeRecommend',
-  data() {
-    return {
-      recommendList: [{
-        id: '0001',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1907/43/434697bdffd1475fa3.water.jpg_200x200_1184ab09.jpg',
-        title: '乐岛海洋王国',
-        desc: '山海关区'
-      },{
-        id: '0002',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1907/43/434697bdffd1475fa3.water.jpg_200x200_1184ab09.jpg',
-        title: '乐岛海洋王国',
-        desc: '山海关区'
-      },{
-        id: '0003',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1907/43/434697bdffd1475fa3.water.jpg_200x200_1184ab09.jpg',
-        title: '乐岛海洋王国',
-        desc: '山海关区'
-      }]
-    }
+  props: {
+    list: Array
   }
 }
 </script>
