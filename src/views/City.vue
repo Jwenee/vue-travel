@@ -1,7 +1,7 @@
 <template>
   <div class="city">
     <city-header></city-header>
-    <city-search></city-search>
+    <city-search :cities="cities"></city-search>
     <city-list
       :cities="cities"
       :hotCities="hotCities"
@@ -46,7 +46,6 @@ export default {
            .then(this.getCityInfoSucc)
     },
     getCityInfoSucc(res) {
-      console.log(res)
       res = res.data.data
       if (res.ret && res.data) {
         const data = res.data
