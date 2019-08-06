@@ -1,8 +1,9 @@
 const express = require('express')
 // const webpack = require('webpack')
 const app = express()
-var appData = require('./public/mock/index.json')
-var apiRoutes = express.Router()
+const homeData = require('./public/mock/index.json')
+const cityData = require('./public/mock/city.json')
+const apiRoutes = express.Router()
 app.use('/api', apiRoutes)
 module.exports = {
   publicPath: './',
@@ -11,7 +12,12 @@ module.exports = {
     before (app) {
       app.get('/api/index.json', (req, res) => {
         res.json({
-          data: appData
+          data: homeData
+        })
+      })
+      app.get('/api/city.json', (req, res) => {
+        res.json({
+          data: cityData
         })
       })
     }
