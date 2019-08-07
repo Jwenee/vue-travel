@@ -25,6 +25,7 @@ export default new Router({
       component: () => import('./views/Detail.vue')
     }
   ],
+  // 使页面切换时滚动到页面顶部
   scrollBehavior (to, from, savedPosition) {
     return { x: 0, y: 0 }
   }
