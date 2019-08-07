@@ -3,6 +3,7 @@ const express = require('express')
 const app = express()
 const homeData = require('./public/mock/index.json')
 const cityData = require('./public/mock/city.json')
+const detailData = require('./public/mock/detail.json')
 const apiRoutes = express.Router()
 app.use('/api', apiRoutes)
 module.exports = {
@@ -18,6 +19,11 @@ module.exports = {
       app.get('/api/city.json', (req, res) => {
         res.json({
           data: cityData
+        })
+      })
+      app.get('/api/detail.json', (req, res) => {
+        res.json({
+          data: detailData
         })
       })
     }

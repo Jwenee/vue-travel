@@ -1,16 +1,17 @@
 <template>
   <div>
     <div class="banner" @click="handleBannerClick">
-      <img class="banner-img" src="http://img1.qunarzz.com/sight/p0/1907/43/434697bdffd1475fa3.water.jpg_600x330_3a0f0c8d.jpg" alt="">
+      <img class="banner-img" :src="bannerImg" alt="">
       <div class="banner-info">
-        <div class="banner-title">乐岛海洋王国(AAAA景区)</div>
+        <div class="banner-title">{{sightName}}</div>
         <div class="banner-number">
-          <span class="iconfont banner-icon">&#xe67f;</span>21
+          <span class="iconfont banner-icon">&#xe67f;</span>
+          {{gallaryImgs.length}}
         </div>
       </div>
     </div>
     <common-gallary
-      :imgs="imgs"
+      :imgs="gallaryImgs"
       v-show="showGallary"
       @close="handleGallaryClose"
     ></common-gallary>
@@ -24,11 +25,14 @@ export default {
   components: {
     CommonGallary
   },
+  props: {
+    sightName: String,
+    bannerImg: String,
+    gallaryImgs: Array
+  },
   data() {
     return {
-      showGallary: false,
-      imgs: ['http://img1.qunarzz.com/sight/p0/1907/ef/ef42d0ea81109d30a3.water.jpg_r_800x800_6b55c88a.jpg',
-        'http://img1.qunarzz.com/sight/p0/1907/a4/a45520e3029da303a3.water.jpg_r_800x800_e9e7ac09.jpg']
+      showGallary: false
     }
   },
   methods: {
