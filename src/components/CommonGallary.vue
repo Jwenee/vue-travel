@@ -17,12 +17,12 @@ export default {
   props: {
     imgs: {
       type: Array,
-      default() {
+      default () {
         return []
       }
     }
   },
-  data() {
+  data () {
     return {
       swiperOptions: {
         autoplay: false,
@@ -34,7 +34,7 @@ export default {
     }
   },
   methods: {
-    handleGallatyClick() {
+    handleGallatyClick () {
       this.$emit('close')
     }
   }

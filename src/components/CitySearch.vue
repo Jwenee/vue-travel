@@ -27,7 +27,7 @@ export default {
   props: {
     cities: Object
   },
-  data() {
+  data () {
     return {
       keyword: '',
       list: [],
@@ -35,12 +35,12 @@ export default {
     }
   },
   computed: {
-    hasNoData() {
+    hasNoData () {
       return !this.list.length
     }
   },
   methods: {
-    handleCityClick(city) {
+    handleCityClick (city) {
       // this.$store.dispatch('changeCity', city)
       // this.$store.commit('changeCity', city)
       this.changeCity(city)
@@ -49,7 +49,7 @@ export default {
     ...mapMutations(['changeCity'])
   },
   watch: {
-    keyword() {
+    keyword () {
       if (this.timer) {
         clearTimeout(this.timer)
       }
@@ -61,16 +61,16 @@ export default {
         let result = []
         for (let i in this.cities) {
           this.cities[i].forEach(value => {
-            if (value.spell.indexOf(this.keyword) > -1 || value.name.indexOf(this.keyword) > -1 ) {
+            if (value.spell.indexOf(this.keyword) > -1 || value.name.indexOf(this.keyword) > -1) {
               result.push(value)
             }
           })
         }
         this.list = result
-      },100)
+      }, 100)
     }
   },
-  mounted() {
+  mounted () {
     this.scroll = new BScroll(this.$refs.search)
   }
 }
@@ -105,6 +105,5 @@ export default {
       padding-left: .2rem
       background: #ffffff
       color: #666666
-
 
 </style>

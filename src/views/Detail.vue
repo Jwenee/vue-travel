@@ -22,9 +22,9 @@ export default {
   components: {
     DetailBanner,
     DetailHeader,
-    DetailList,
+    DetailList
   },
-  data() {
+  data () {
     return {
       sightName: '',
       bannerImg: '',
@@ -32,18 +32,18 @@ export default {
       list: []
     }
   },
-  mounted() {
+  mounted () {
     this.getDetailInfo()
   },
   methods: {
-    getDetailInfo() {
+    getDetailInfo () {
       axios.get('/api/detail.json?', {
         params: {
           id: this.$route.params.id
         }
       }).then(this.getDetailInfoSucc)
     },
-    getDetailInfoSucc(res) {
+    getDetailInfoSucc (res) {
       res = res.data.data
       if (res.ret && res.data) {
         const data = res.data

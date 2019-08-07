@@ -60,7 +60,7 @@ export default {
     })
   },
   methods: {
-    handleCityClick(city) {
+    handleCityClick (city) {
       // this.$store.dispatch('changeCity', city)
       // this.$store.commit('changeCity', city)
       this.changeCity(city)
@@ -68,11 +68,11 @@ export default {
     },
     ...mapMutations(['changeCity'])
   },
-  mounted() {
+  mounted () {
     this.scroll = new BScroll(this.$refs.wrapper)
   },
   watch: {
-    letter() {
+    letter () {
       if (this.letter) {
         const element = this.$refs[this.letter][0]
         this.scroll.scrollToElement(element)

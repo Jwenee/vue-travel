@@ -28,23 +28,23 @@ export default {
   name: 'DetailBanner',
   components: {
     CommonGallary,
-    CommonFade,
+    CommonFade
   },
   props: {
     sightName: String,
     bannerImg: String,
     gallaryImgs: Array
   },
-  data() {
+  data () {
     return {
       showGallary: false
     }
   },
   methods: {
-    handleBannerClick() {
+    handleBannerClick () {
       this.showGallary = true
     },
-    handleGallaryClose() {
+    handleGallaryClose () {
       this.showGallary = false
     }
   }

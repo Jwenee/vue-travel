@@ -28,24 +28,24 @@ export default {
     CityHeader,
     CitySearch,
     CityList,
-    CityAlphabet,
+    CityAlphabet
   },
-  data() {
+  data () {
     return {
       cities: {},
       hotCities: [],
       letter: ''
     }
   },
-  mounted() {
+  mounted () {
     this.getCityInfo()
   },
   methods: {
-    getCityInfo(){
+    getCityInfo () {
       axios.get('/api/city.json')
-           .then(this.getCityInfoSucc)
+        .then(this.getCityInfoSucc)
     },
-    getCityInfoSucc(res) {
+    getCityInfoSucc (res) {
       res = res.data.data
       if (res.ret && res.data) {
         const data = res.data
@@ -53,7 +53,7 @@ export default {
         this.hotCities = data.hotCities
       }
     },
-    handleChange(letter) {
+    handleChange (letter) {
       this.letter = letter
     }
   }

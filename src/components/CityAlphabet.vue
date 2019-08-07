@@ -5,7 +5,7 @@
       v-for="item of letters"
       :key="item"
       :ref="item"
-      @touchstart="handleTouchStart"
+      @touchstart.prevent="handleTouchStart"
       @touchmove="handleTouchMove"
       @touchend="handleTouchEnd"
       @click="handleClick"
@@ -21,18 +21,18 @@ export default {
   props: {
     cities: Object
   },
-  data() {
+  data () {
     return {
       touchStatus: false,
       startY: 0,
       timer: null
     }
   },
-  updated() {
+  updated () {
     this.startY = this.$refs['A'][0].offsetTop
   },
   computed: {
-    letters() {
+    letters () {
       let letters = []
       for (let i in this.cities) {
         letters.push(i)
@@ -41,27 +41,27 @@ export default {
     }
   },
   methods: {
-    handleClick(e) {
+    handleClick (e) {
       this.$emit('change', e.target.innerText)
     },
-    handleTouchStart() {
+    handleTouchStart () {
       this.touchStatus = true
     },
-    handleTouchMove(e) {
+    handleTouchMove (e) {
       if (this.touchStatus) {
         if (this.timer) {
           clearTimeout(this.timer)
         }
         this.timer = setTimeout(() => {
-          const touchY = e.touches[0].clientY -79 //触摸点距离到页面顶部的距离减去固定头部的距离
-          const index = Math.floor((touchY - this.startY) /20) //20为每个列表的高度
+          const touchY = e.touches[0].clientY - 79 // 触摸点距离到页面顶部的距离减去固定头部的距离
+          const index = Math.floor((touchY - this.startY) / 20) // 20为每个列表的高度
           if (index >= 0 && index < this.letters.length) {
             this.$emit('change', this.letters[index])
           }
         }, 16)
       }
     },
-    handleTouchEnd() {
+    handleTouchEnd () {
       this.touchStatus = false
     }
   }

@@ -15,17 +15,17 @@ export default {
   props: {
     list: Array
   },
-  data() {
+  data () {
     return {
       swiperOption: {
         pagination: '.swiper-pagination',
         loop: true,
         autoplay: 2000
-      },
+      }
     }
   },
   computed: {
-    showSwiper() {
+    showSwiper () {
       return this.list.length
     }
   }
